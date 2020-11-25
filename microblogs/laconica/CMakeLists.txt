@@ -11,7 +11,7 @@ set(choqok_laconica_SRCS
 
 ki18n_wrap_ui(choqok_laconica_SRCS laconicaeditaccount_base.ui)
 
-add_library(choqok_laconica MODULE ${choqok_laconica_SRCS})
+kcoreaddons_add_plugin(choqok_laconica SOURCES ${choqok_laconica_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_laconica choqok_laconica.desktop)
 
@@ -27,8 +27,5 @@ PUBLIC
     choqok
     gnusocialapihelper
 )
-
-install(TARGETS choqok_laconica DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_laconica.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
 add_subdirectory(icons)

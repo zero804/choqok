@@ -8,7 +8,7 @@ set(choqok_mobypicture_PART_SRCS
 
 kconfig_add_kcfg_files(choqok_mobypicture_PART_SRCS mobypicturesettings.kcfgc)
 
-add_library(choqok_mobypicture MODULE ${choqok_mobypicture_PART_SRCS})
+kcoreaddons_add_plugin(choqok_mobypicture SOURCES ${choqok_mobypicture_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_mobypicture choqok_mobypicture.desktop)
 
@@ -22,9 +22,6 @@ PUBLIC
     twitterapihelper
 )
 
-install(TARGETS choqok_mobypicture DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_mobypicture.desktop DESTINATION ${SERVICES_INSTALL_DIR})
-
 set(kcm_choqok_mobypicture_PART_SRCS
     mobypictureconfig.cpp
 )
@@ -33,7 +30,7 @@ ki18n_wrap_ui(kcm_choqok_mobypicture_PART_SRCS mobypictureprefs.ui)
 
 kconfig_add_kcfg_files(kcm_choqok_mobypicture_PART_SRCS mobypicturesettings.kcfgc)
 
-add_library(kcm_choqok_mobypicture MODULE ${kcm_choqok_mobypicture_PART_SRCS})
+kcoreaddons_add_plugin(kcm_choqok_mobypicture SOURCES ${kcm_choqok_mobypicture_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(kcm_choqok_mobypicture choqok_mobypicture_config.desktop)
 
@@ -48,8 +45,6 @@ PUBLIC
     choqok
 )
 
-install(TARGETS kcm_choqok_mobypicture DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES mobypicturesettings.kcfg DESTINATION ${KCFG_INSTALL_DIR})
-install(FILES choqok_mobypicture_config.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 add_subdirectory(icons)

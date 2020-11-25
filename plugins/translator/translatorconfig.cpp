@@ -32,8 +32,7 @@
 #include <QFile>
 #include "sharedtools.h"
 
-K_PLUGIN_FACTORY( TranslatorConfigFactory, registerPlugin < TranslatorConfig > (); )
-K_EXPORT_PLUGIN( TranslatorConfigFactory( "kcm_choqok_translator" ) )
+K_PLUGIN_CLASS_WITH_JSON( TranslatorConfig, "choqok_translator_config.json")
 
 TranslatorConfig::TranslatorConfig(QWidget* parent, const QVariantList& args):
         KCModule( TranslatorConfigFactory::componentData(), parent, args)

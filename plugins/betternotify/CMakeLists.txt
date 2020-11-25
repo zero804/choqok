@@ -11,7 +11,7 @@ set(choqok_notify_PART_SRCS
 
 # kconfig_add_kcfg_files(choqok_notify_PART_SRCS betternotify.kcfgc)
 
-add_library(choqok_betternotify MODULE ${choqok_notify_PART_SRCS})
+kcoreaddons_add_plugin(choqok_betternotify SOURCES ${choqok_notify_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_betternotify choqok_notify.desktop)
 
@@ -26,8 +26,6 @@ PUBLIC
     choqok
 )
 
-install(TARGETS choqok_betternotify DESTINATION ${PLUGIN_INSTALL_DIR})
-
 set(kcm_choqok_notify_PART_SRCS
     dummynotification.cpp
     notifyconfig.cpp
@@ -38,7 +36,7 @@ ki18n_wrap_ui(kcm_choqok_notify_PART_SRCS notifyprefs.ui)
 
 # kconfig_add_kcfg_files(kcm_choqok_notify_PART_SRCS betternotify.kcfgc)
 
-add_library(kcm_choqok_betternotify MODULE ${kcm_choqok_notify_PART_SRCS})
+kcoreaddons_add_plugin(kcm_choqok_betternotify SOURCES ${kcm_choqok_notify_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(kcm_choqok_betternotify choqok_notify_config.desktop)
 
@@ -52,7 +50,3 @@ PUBLIC
     KF5::I18n
     choqok
 )
-
-install(TARGETS kcm_choqok_betternotify DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_notify.desktop choqok_notify_config.desktop
-        DESTINATION ${SERVICES_INSTALL_DIR})

@@ -4,7 +4,7 @@ set(choqok_is_gd_SRCS
 
 kconfig_add_kcfg_files(choqok_is_gd_SRCS is_gd_settings.kcfgc)
 
-add_library(choqok_is_gd MODULE ${choqok_is_gd_SRCS})
+kcoreaddons_add_plugin(choqok_is_gd SOURCES ${choqok_is_gd_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_is_gd choqok_is_gd.desktop)
 
@@ -17,9 +17,6 @@ PUBLIC
     choqok
 )
 
-install(TARGETS choqok_is_gd DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_is_gd.desktop DESTINATION ${SERVICES_INSTALL_DIR})
-
 set(kcm_choqok_is_gd_PART_SRCS
     is_gd_config.cpp
 )
@@ -28,7 +25,7 @@ ki18n_wrap_ui(kcm_choqok_is_gd_PART_SRCS is_gd_prefs.ui)
 
 kconfig_add_kcfg_files(kcm_choqok_is_gd_PART_SRCS is_gd_settings.kcfgc)
 
-add_library(kcm_choqok_is_gd MODULE ${kcm_choqok_is_gd_PART_SRCS})
+kcoreaddons_add_plugin(kcm_choqok_is_gd SOURCES ${kcm_choqok_is_gd_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(kcm_choqok_is_gd choqok_is_gd_config.desktop)
 
@@ -41,6 +38,4 @@ PUBLIC
     choqok
 )
 
-install(TARGETS kcm_choqok_is_gd DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES is_gd_settings.kcfg DESTINATION ${KCFG_INSTALL_DIR})
-install(FILES choqok_is_gd_config.desktop DESTINATION ${SERVICES_INSTALL_DIR})

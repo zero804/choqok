@@ -22,7 +22,7 @@
 
 #include "plugin.h"
 
-#include <KPluginInfo>
+#include <KPluginMetaData>
 #include <ksettings/Dispatcher>
 
 #include "pluginmanager.h"
@@ -56,22 +56,22 @@ QString Plugin::pluginId() const
 
 QString Plugin::displayName() const
 {
-    return pluginInfo().isValid() ? pluginInfo().name() : QString();
+    return pluginMetaData().isValid() ? pluginMetaData().name() : QString();
 }
 
 QString Plugin::pluginName() const
 {
-    return pluginInfo().isValid() ? pluginInfo().pluginName() : QString();
+    return pluginMetaData().isValid() ? pluginMetaData().name() : QString();
 }
 
 QString Plugin::pluginIcon() const
 {
-    return pluginInfo().isValid() ? pluginInfo().icon() : QString();
+    return pluginMetaData().isValid() ? pluginMetaData().iconName() : QString();
 }
 
-KPluginInfo Plugin::pluginInfo() const
+KPluginMetaData Plugin::pluginMetaData() const
 {
-    return PluginManager::self()->pluginInfo(this);
+    return PluginManager::self()->pluginMetaData(this);
 }
 
 void Plugin::aboutToUnload()

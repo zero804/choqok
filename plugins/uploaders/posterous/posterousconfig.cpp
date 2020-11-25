@@ -38,8 +38,7 @@
 
 #include "posteroussettings.h"
 
-K_PLUGIN_FACTORY_WITH_JSON(PosterousConfigFactory, "choqok_posterous_config.json",
-                           registerPlugin < PosterousConfig > ();)
+K_PLUGIN_CLASS_WITH_JSON(PosterousConfig, "choqok_posterous_config.json")
 
 PosterousConfig::PosterousConfig(QWidget *parent, const QVariantList &) :
     KCModule(KAboutData::pluginData(QLatin1String("kcm_choqok_posterous")), parent)

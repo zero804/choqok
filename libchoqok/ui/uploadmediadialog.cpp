@@ -102,12 +102,12 @@ UploadMediaDialog::~UploadMediaDialog()
 
 void UploadMediaDialog::load()
 {
-    QList<KPluginInfo> plugins = Choqok::PluginManager::self()->availablePlugins(QLatin1String("Uploaders"));
+    QVector<KPluginMetaData> plugins = Choqok::PluginManager::self()->availablePlugins(QLatin1String("Uploaders"));
     qCDebug(CHOQOK) << plugins.count();
 
-    for (const KPluginInfo &plugin: plugins) {
-        d->ui.uploaderPlugin->addItem(QIcon::fromTheme(plugin.icon()), plugin.name(), plugin.pluginName());
-        d->availablePlugins.insert(plugin.pluginName(), plugin);
+    for (const KPluginMetaData &plugin: plugins) {
+        d->ui.uploaderPlugin->addItem(QIcon::fromTheme(plugin.iconName()), plugin.name(), plugin.name());
+        d->availablePlugins.insert(plugin.name(), KPluginInfo::fromMetaData(plugin));
     }
     d->ui.uploaderPlugin->setCurrentIndex(d->ui.uploaderPlugin->findData(Choqok::BehaviorSettings::lastUsedUploaderPlugin()));
     if (d->ui.uploaderPlugin->currentIndex() == -1 && d->ui.uploaderPlugin->count() > 0) {

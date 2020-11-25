@@ -43,8 +43,7 @@
 #include <KTabWidget>
 #include "sharedtools.h"
 
-K_PLUGIN_FACTORY( MyPluginFactory, registerPlugin < Translator > (); )
-K_EXPORT_PLUGIN( MyPluginFactory( "choqok_translator" ) )
+K_PLUGIN_CLASS_WITH_JSON(Translator, "choqok_translator.json")
 
 Translator::Translator(QObject* parent, const QList< QVariant >& )
     :Choqok::Plugin(MyPluginFactory::componentData(), parent)

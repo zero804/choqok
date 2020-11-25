@@ -2,7 +2,7 @@ set(choqok_goo_gl_SRCS
     goo_gl.cpp
 )
 
-add_library(choqok_goo_gl MODULE ${choqok_goo_gl_SRCS})
+kcoreaddons_add_plugin(choqok_goo_gl SOURCES ${choqok_goo_gl_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_goo_gl choqok_goo_gl.desktop)
 
@@ -14,6 +14,3 @@ PUBLIC
     KF5::KIOCore
     choqok
 )
-
-install(TARGETS choqok_goo_gl DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_goo_gl.desktop DESTINATION ${SERVICES_INSTALL_DIR})

@@ -19,7 +19,7 @@ ki18n_wrap_ui(choqok_mastodon_SRCS
     mastodoneditaccountwidget.ui
 )
 
-add_library(choqok_mastodon MODULE ${choqok_mastodon_SRCS})
+kcoreaddons_add_plugin(choqok_mastodon SOURCES ${choqok_mastodon_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_mastodon choqok_mastodon.desktop)
 
@@ -36,8 +36,5 @@ PUBLIC
     qca-qt5
     choqok
 )
-
-install(TARGETS choqok_mastodon DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_mastodon.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 add_subdirectory(icons)

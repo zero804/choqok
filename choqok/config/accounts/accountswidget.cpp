@@ -246,7 +246,7 @@ void AccountsWidget::save()
 QMenu *AccountsWidget::createAddAccountMenu()
 {
     mBlogMenu = new QMenu(i18n("Select Micro-Blogging Service"), this);
-    const QList<KPluginInfo> list = Choqok::PluginManager::self()->availablePlugins(QLatin1String("MicroBlogs"));
+    const QList<KPluginInfo> list = KPluginInfo::fromMetaData(Choqok::PluginManager::self()->availablePlugins(QLatin1String("MicroBlogs")));
     for (const KPluginInfo &info: list) {
         QAction *act = new QAction(mBlogMenu);
         act->setText(info.name());

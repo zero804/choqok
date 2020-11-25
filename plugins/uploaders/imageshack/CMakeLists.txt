@@ -2,7 +2,7 @@ set(choqok_imageshack_PART_SRCS
     imageshack.cpp
 )
 
-add_library(choqok_imageshack MODULE ${choqok_imageshack_PART_SRCS})
+kcoreaddons_add_plugin(choqok_imageshack SOURCES ${choqok_imageshack_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_imageshack choqok_imageshack.desktop)
 
@@ -15,8 +15,5 @@ PUBLIC
     KF5::KIOCore
     choqok
 )
-
-install(TARGETS choqok_imageshack DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_imageshack.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 add_subdirectory(icons)

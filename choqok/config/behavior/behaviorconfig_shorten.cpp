@@ -82,7 +82,7 @@ void BehaviorConfig_Shorten::currentPluginChanged(int index)
 
 void BehaviorConfig_Shorten::load()
 {
-    QList<KPluginInfo> plugins = Choqok::PluginManager::self()->availablePlugins(QLatin1String("Shorteners"));
+    QList<KPluginInfo> plugins = KPluginInfo::fromMetaData(Choqok::PluginManager::self()->availablePlugins(QLatin1String("Shorteners")));
     shortenPlugins->clear();
     shortenPlugins->addItem(i18nc("No shortener service", "None"), QLatin1String("none"));
     for (const KPluginInfo &plugin: plugins) {

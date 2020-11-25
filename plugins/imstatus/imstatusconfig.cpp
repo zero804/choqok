@@ -34,8 +34,7 @@
 #include "imqdbus.h"
 #include "imstatussettings.h"
 
-K_PLUGIN_FACTORY_WITH_JSON(IMStatusConfigFactory, "choqok_imstatus_config.json",
-                           registerPlugin < IMStatusConfig > ();)
+K_PLUGIN_CLASS_WITH_JSON(IMStatusConfig, "choqok_imstatus_config.json")
 
 IMStatusConfig::IMStatusConfig(QWidget *parent, const QVariantList &args) :
     KCModule(KAboutData::pluginData(QLatin1String("kcm_choqok_imstatus")), parent, args)

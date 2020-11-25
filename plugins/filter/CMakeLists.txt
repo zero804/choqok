@@ -12,7 +12,7 @@ set(choqok_filter_PART_SRCS
 
 ki18n_wrap_ui(choqok_filter_PART_SRCS addeditfilter_base.ui filterprefs.ui)
 
-add_library(choqok_filter MODULE ${choqok_filter_PART_SRCS})
+kcoreaddons_add_plugin(choqok_filter SOURCES ${choqok_filter_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_filter choqok_filter.desktop)
 
@@ -30,6 +30,4 @@ PUBLIC
     twitterapihelper
 )
 
-install(TARGETS choqok_filter DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_filter.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 install(FILES filterui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/choqok_filter)

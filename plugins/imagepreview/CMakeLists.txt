@@ -6,7 +6,7 @@ set(choqok_imagepreview_PART_SRCS
     imagepreview.cpp
 )
 
-add_library(choqok_imagepreview MODULE ${choqok_imagepreview_PART_SRCS})
+kcoreaddons_add_plugin(choqok_imagepreview SOURCES ${choqok_imagepreview_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_imagepreview choqok_imagepreview.desktop)
 
@@ -17,6 +17,3 @@ PUBLIC
     KF5::CoreAddons
     choqok
 )
-
-install(TARGETS choqok_imagepreview DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_imagepreview.desktop DESTINATION ${SERVICES_INSTALL_DIR})

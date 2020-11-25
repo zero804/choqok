@@ -2,7 +2,7 @@ set(choqok_tighturl_SRCS
     tighturl.cpp
 )
 
-add_library(choqok_tighturl MODULE ${choqok_tighturl_SRCS})
+kcoreaddons_add_plugin(choqok_tighturl SOURCES ${choqok_tighturl_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_tighturl choqok_tighturl.desktop)
 
@@ -14,6 +14,3 @@ PUBLIC
     KF5::KIOCore
     choqok
 )
-
-install(TARGETS choqok_tighturl DESTINATION ${PLUGIN_INSTALL_DIR})
-install( FILES choqok_tighturl.desktop DESTINATION ${SERVICES_INSTALL_DIR})

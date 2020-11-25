@@ -6,7 +6,7 @@ set(choqok_videopreview_PART_SRCS
     videopreview.cpp
 )
 
-add_library(choqok_videopreview MODULE ${choqok_videopreview_PART_SRCS})
+kcoreaddons_add_plugin(choqok_videopreview SOURCES ${choqok_videopreview_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_videopreview choqok_videopreview.desktop)
 
@@ -18,6 +18,3 @@ PUBLIC
     KF5::KIOWidgets
     choqok
 )
-
-install(TARGETS choqok_videopreview DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_videopreview.desktop DESTINATION ${SERVICES_INSTALL_DIR})

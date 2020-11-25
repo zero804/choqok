@@ -29,6 +29,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginSelector>
+#include <KPluginInfo>
 #include <ksettings/Dispatcher>
 
 #include "pluginmanager.h"
@@ -50,7 +51,7 @@ ChoqokPluginConfig::ChoqokPluginConfig(QWidget *parent, const QVariantList &args
     connect(m_pluginSelector, &KPluginSelector::configCommitted,
             this, &ChoqokPluginConfig::reparseConfiguration);
 
-    m_pluginSelector->addPlugins(Choqok::PluginManager::self()->availablePlugins(QLatin1String("Plugins")),
+    m_pluginSelector->addPlugins(KPluginInfo::fromMetaData(Choqok::PluginManager::self()->availablePlugins(QLatin1String("Plugins"))),
                                  KPluginSelector::ReadConfigFile, i18n("General Plugins"), QLatin1String("Plugins"));
 //     m_pluginSelector->addPlugins( Choqok::PluginManager::self()->availablePlugins( "Shorteners" ),
 //                                   KPluginSelector::ReadConfigFile, i18n("Shortener Plugins"), "Shorteners");

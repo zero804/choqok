@@ -8,7 +8,7 @@ set(choqok_untiny_PART_SRCS
 
 kconfig_add_kcfg_files(choqok_untiny_PART_SRCS untinysettings.kcfgc)
 
-add_library(choqok_untiny MODULE ${choqok_untiny_PART_SRCS})
+kcoreaddons_add_plugin(choqok_untiny SOURCES ${choqok_untiny_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_untiny choqok_untiny.desktop)
 
@@ -19,9 +19,6 @@ PUBLIC
     KF5::KIOCore
     choqok
 )
-
-install(TARGETS choqok_untiny DESTINATION ${PLUGIN_INSTALL_DIR})
-
 
 ########### next target ###############
 
@@ -42,5 +39,3 @@ install(TARGETS choqok_untiny DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 install( FILES untinysettings.kcfg  DESTINATION ${KCFG_INSTALL_DIR})
-install( FILES choqok_untiny.desktop #choqok_untiny_config.desktop
-         DESTINATION ${SERVICES_INSTALL_DIR})

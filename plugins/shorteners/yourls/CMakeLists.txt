@@ -4,7 +4,7 @@ set(choqok_yourls_SRCS
 
 kconfig_add_kcfg_files(choqok_yourls_SRCS yourlssettings.kcfgc)
 
-add_library(choqok_yourls MODULE ${choqok_yourls_SRCS})
+kcoreaddons_add_plugin(choqok_yourls SOURCES ${choqok_yourls_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_yourls choqok_yourls.desktop)
 
@@ -17,9 +17,6 @@ PUBLIC
     choqok
 )
 
-install(TARGETS choqok_yourls DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES choqok_yourls.desktop DESTINATION ${SERVICES_INSTALL_DIR})
-
 set(kcm_choqok_yourls_PART_SRCS
     yourlsconfig.cpp
 )
@@ -28,7 +25,7 @@ ki18n_wrap_ui(kcm_choqok_yourls_PART_SRCS yourlsprefs.ui)
 
 kconfig_add_kcfg_files(kcm_choqok_yourls_PART_SRCS yourlssettings.kcfgc)
 
-add_library(kcm_choqok_yourls MODULE ${kcm_choqok_yourls_PART_SRCS})
+kcoreaddons_add_plugin(kcm_choqok_yourls SOURCES ${kcm_choqok_yourls_PART_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(kcm_choqok_yourls choqok_yourls_config.desktop)
 
@@ -41,6 +38,4 @@ PUBLIC
     choqok
 )
 
-install(TARGETS kcm_choqok_yourls DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES yourlssettings.kcfg DESTINATION ${KCFG_INSTALL_DIR})
-install(FILES choqok_yourls_config.desktop DESTINATION ${SERVICES_INSTALL_DIR})

@@ -30,7 +30,7 @@
 
 #include "choqok_export.h"
 
-class KPluginInfo;
+class KPluginMetaData;
 
 /**
 * Current Choqok plugin interface version. Interfaces declare plugin version
@@ -94,9 +94,9 @@ public:
     virtual ~Plugin();
 
     /**
-    * Returns the KPluginInfo object associated with this plugin
+    * Returns the KPluginMetaData object associated with this plugin
     */
-    KPluginInfo pluginInfo() const;
+    KPluginMetaData pluginMetaData() const;
 
     /**
     * Get the name of the icon for this plugin. The icon name is taken from the

@@ -13,7 +13,7 @@ ki18n_wrap_ui(choqok_ocs_SRCS
     ocsconfigurebase.ui
 )
 
-add_library(choqok_ocs MODULE ${choqok_ocs_SRCS})
+kcoreaddons_add_plugin(choqok_ocs SOURCES ${choqok_ocs_SRCS} INSTALL_NAMESPACE "choqok")
 
 kcoreaddons_desktop_to_json(choqok_ocs choqok_ocs.desktop)
 
@@ -26,8 +26,5 @@ PUBLIC
     KF5::WidgetsAddons
     choqok
 )
-
-install(TARGETS choqok_ocs DESTINATION ${PLUGIN_INSTALL_DIR})
-install( FILES choqok_ocs.desktop  DESTINATION ${SERVICES_INSTALL_DIR})
 
 add_subdirectory(icons)
